@@ -1,0 +1,84 @@
+body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 10vw 30vw 10vw;
+  grid-gap: 1em;
+}
+header,
+footer {
+  grid-column: 1 / span 5;
+}
+main {
+  grid-column: 1 / span 3;
+  height: 100%;
+}
+aside {
+  grid-column: span 2;
+}
+@media (max-width: 700px) { 
+  main,
+  aside {
+    grid-column: 1 / span 5;
+  }
+}
+body {
+  margin: 0 auto;
+  max-width: 56em;
+  padding: 1em 0;
+}
+header,
+main,
+aside,
+footer {
+  background: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header,
+footer {
+  height: 10vw;
+}
+#soundboard {
+  display: grid;
+  grid-template-rows: 20% auto;
+  align-items: stretch;
+  width: 100%;
+  /* height: 100%; */
+}
+#line {
+  position: absolute;
+  height: auto;
+  border-left: 5px solid black;
+  /* height: 500px; */
+  /* margin-left: */
+}
+#instruments {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 5px;
+  height: 100%;
+}
+/* #instrument {
+  background-color: purple;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-gap: 5px;
+  height: 50px;
+} */
+#beat {
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  grid-gap: 5px;
+}
+
+.noteOn {
+  background-color: '#6500a0';
+}
+
+/* @keyframes rotate {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+} */

@@ -1,0 +1,133 @@
+<html>
+
+<head>
+  <!-- Load @magenta/music -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.0.0"></script> -->
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <link rel="stylesheet" href="index.css">
+</head>
+  <header>
+    Header
+  </header>
+  <main>
+    <div id="soundboard">
+      <div id="beat"></div>
+      <div id="instruments">
+        <!-- Eventually will be a moving line corresponding to position -->
+      <div id="line"></div>
+      </div>
+  </main>
+  <aside>
+    <p>Add Sound</p>
+    <p>List of Sounds</p>
+  </aside>
+  <footer>
+    Footer
+  </footer>
+  <audio data-key="1" src="sounds/boom.wav"></audio>
+  <script>
+
+    const render = function (template, node) {
+      if (!node) return;
+      node.innerHTML = (typeof template === 'function' ? template() : template);
+      var event = new CustomEvent('elementRenders', {
+        bubbles: true
+      });
+      node.dispatchEvent(event);
+      return node;
+    };
+    document.addEventListener('elementRendered', function (event) {
+      var elem = event.target;
+    }, false);
+
+  </script>
+  <script>
+
+    //Creating state
+    let falseTimes16Array = () => {
+      return "false ".repeat(15).split(" ").map(each => each === "true")
+    }
+    const state = {
+      beatNumber: 0,
+      instruments: [
+        {name: "guitar", id: 0, notes: falseTimes16Array()},
+        {name: "drums", id: 1, notes: falseTimes16Array()},
+        {name: "drums", id: 2, notes: falseTimes16Array()},
+      ]
+    }
+    
+    //Creating interval functions and onclick handlers
+    function noteClick (e) {
+      let instruments = state.instruments
+      instruments.forEach((instrument, instrumentIndex) => {
+        instrument.notes.forEach((noteBoolean, noteIndex) => {
+          if (instrument.id + '-' + noteIndex === e.target.id) {
+            let note = document.getElementById(instrument.id + "-" + noteIndex);
+            note.style.backgroundColor = !noteBoolean ? '#6500a0' : '#ffcccc';
+            instruments[instrumentIndex].notes[noteIndex] = !instruments[instrumentIndex].notes[noteIndex]
+            state.instruments = instruments
+          }
+        })
+      })
+    };
+
+
+    let beat = () => {
+      state.instruments.forEach(instrument => {
+        instrument.notes.forEach((noteBoolean,noteIndex) => {
+          if (!noteBoolean || state.beatNumber != noteIndex) return;
+          let note = document.getElementById(instrument.id + "-" + noteIndex);
+          const audio = document.querySelector(`audio[data-key="1"]`);
+          note.style.backgroundColor = 'black';
+          audio.currentTime = 0;
+          audio.play();
+          //TODO: Add event listener instead of timeout
+          setTimeout(() => {
+            note.style.backgroundColor = '#6500a0';
+          }, 200)
+        })
+        let template = '<h1>The beat is ' + state.beatNumber 
+        render(template, document.querySelector('#beat'));
+      })
+        state.beatNumber === 15 ? state.beatNumber = 0 : state.beatNumber += 1 ;
+    };
+    
+
+    //Adding instruments to soundboard
+    state.instruments.forEach(each => {
+      let instrument = document.createElement("div")
+      instrument.id = each.id
+      instrument.setAttribute("style", "display: grid; grid-template-columns: repeat(16, 1fr); grid-gap: 5px; height: 50px;")
+      for (let noteID = 0; noteID < 16; noteID++) {
+        let note = document.createElement("div");
+        note.id = each.id + "-" + noteID
+        note.style.border = '2px solid black';
+        note.style.backgroundColor = '#ffcccc';
+        // note.addEventListener('click', noteClick)
+        instrument.appendChild(note)
+      }
+      instruments.appendChild(instrument)
+    })
+    render(instruments.innerHTML, document.querySelector('#instruments'));
+    document.getElementById("line").style.height = document.getElementById("soundboard").clientHeight;
+
+    //Adding onclick handlers to toggle each beat of each instrument
+    state.instruments.forEach(each => {
+      for (let noteID = 0; noteID < 16; noteID++) {
+        let note = document.getElementById(each.id + "-" + noteID)
+        note.addEventListener('click', noteClick)
+      }
+    })
+
+    //Start main interval functions
+    beat();
+    window.setInterval(beat, 200);
+  </script>
+</html>
+
+
+
+
+
+
+
