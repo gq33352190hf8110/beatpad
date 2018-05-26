@@ -1,19 +1,25 @@
+header,
+main,
+aside,
+footer {
+  background: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header,
+footer {
+  grid-column: 1 / span 5;
+}
 body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 10vw 30vw 10vw;
   grid-gap: 1em;
 }
-header,
-footer {
-  grid-column: 1 / span 5;
-}
 main {
   grid-column: 1 / span 3;
   height: 100%;
-}
-aside {
-  grid-column: span 2;
 }
 @media (max-width: 700px) { 
   main,
@@ -26,16 +32,12 @@ body {
   max-width: 56em;
   padding: 1em 0;
 }
-header,
-main,
-aside,
-footer {
-  background: #eaeaea;
+aside {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  grid-column: span 2;
+  justify-content: start;
 }
-
 header,
 footer {
   height: 10vw;
