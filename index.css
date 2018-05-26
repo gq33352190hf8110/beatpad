@@ -9,16 +9,16 @@ footer {
 }
 header,
 footer {
-  grid-column: 1 / span 5;
+  grid-column: 1 / span 7;
 }
 body {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 10vw 30vw 10vw;
   grid-gap: 1em;
 }
 main {
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 7;
   height: 100%;
 }
 @media (max-width: 700px) { 
@@ -29,13 +29,13 @@ main {
 }
 body {
   margin: 0 auto;
-  max-width: 56em;
+  max-width: 95em;
   padding: 1em 0;
 }
 aside {
   display: flex;
   flex-direction: column;
-  grid-column: span 2;
+  grid-column: span 1;
   justify-content: start;
 }
 header,
