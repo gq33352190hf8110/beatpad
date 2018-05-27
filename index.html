@@ -22,10 +22,17 @@
   <aside>
     <!-- <input id="search" type="text"> -->
     <button id="play">Play</button>
-    <ul>
+    <ul id="instrument-list">
       <li><button data-type="instrument" data-source="tonejs" data-note="new Tone.AMSynth().toMaster()" data-name="synth">Synth</button></li>
-      <li><button data-type="instrument" data-source="other" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/808-kick-vh.mp3").toMaster()' data-name="kick">Kick</button></li>
-      <li><button data-type="instrument" data-source="other" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/flares-snare-vm.mp3").toMaster()' data-name="snare">Snare</button></li>
+      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/808-kick-vh.mp3").toMaster()' data-name="kick">Kick</button></li>
+      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/flares-snare-vm.mp3").toMaster()' data-name="snare">Snare</button></li>
+      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/808-hihat-vh.mp3").toMaster()' data-name="hihat">Hi-hat</button></li>
+      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/808-hihat-open-vh.mp3").toMaster()' data-name="hihat-open">Hi-hat open</button></li>
+      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/slamdam-tom-low-vh.mp3").toMaster()' data-name="slamdam-tom-low">Tom Low</button></li>
+      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/slamdam-tom-mid-vh.mp3").toMaster()' data-name="slamdam-tom-mid">Tom Mid</button></li>
+      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/slamdam-tom-high-vh.mp3").toMaster()' data-name="slamdam-tom-high">Tom High</button></li>
+      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/909-clap-vh.mp3").toMaster()' data-name="clap">Clap</button></li>
+      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/909-rim-vh.wav").toMaster()' data-name="rim">Rim</button></li>
     </ul>
   </aside>
   <footer>
@@ -113,7 +120,7 @@
       let instruments = document.querySelector('#instruments')
       let instrument = document.createElement("div")
       instrument.id = id
-      instrument.setAttribute("style", "display: grid; grid-template-columns: repeat(34, 1fr); grid-gap: 5px; height: 50px;")
+      instrument.setAttribute("style", "display: grid; grid-template-columns: repeat(34, 1fr); grid-gap: 5px; max-height: 50px;")
       let p = document.createElement("p")
       p.innerHTML = name;
       p.style.minWidth = "40px";

@@ -34,10 +34,36 @@ body {
 }
 aside {
   display: flex;
-  flex-direction: column;
-  grid-column: span 1;
+  flex-direction: row;
+  grid-column: 1 / span 7;
   justify-content: start;
+  font-size: 2em;
 }
+aside>ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+aside>ul {
+  padding: 0;
+}
+
+aside,
+aside>ul,
+aside>ul>li,
+aside>ul>li>button {
+  width: 100%;
+  height: 100%;
+  font-size: 1.2em
+}
+
+aside>button {
+  font-size: 3em;
+  width: 30%;
+  height: 100%;
+}
+
 header,
 footer {
   height: 10vw;
@@ -47,14 +73,11 @@ footer {
   grid-template-rows: 20% auto;
   align-items: stretch;
   width: 100%;
-  /* height: 100%; */
 }
 #line {
   position: absolute;
   height: auto;
   border-left: 5px solid black;
-  /* height: 500px; */
-  /* margin-left: */
 }
 #instruments {
   display: grid;
@@ -62,13 +85,7 @@ footer {
   grid-gap: 5px;
   height: 100%;
 }
-/* #instrument {
-  background-color: purple;
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-gap: 5px;
-  height: 50px;
-} */
+
 #beat {
   background-color: blue;
   display: flex;
@@ -79,6 +96,10 @@ footer {
 .noteOn {
   background-color: '#6500a0';
 }
+
+/* .instrument-list {
+
+} */
 
 /* @keyframes rotate {
   from {transform: rotate(0deg);}
