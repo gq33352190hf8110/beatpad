@@ -1,0 +1,24 @@
+{
+  "name": "beatpad",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "tone": "^0.12.80",
+    "ytdl-core": "^0.20.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryjansen91/beatpad.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryjansen91/beatpad/issues"
+  },
+  "homepage": "https://github.com/ryjansen91/beatpad#readme"
+}
