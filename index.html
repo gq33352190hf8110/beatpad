@@ -10,25 +10,17 @@
   <link rel="stylesheet" href="index.css">
 </head>
   <header>
-    Header
+    <!-- Header -->
   </header>
-  <main>
-    <div id="soundboard">
-      <div id="beat"></div>
-      <div id="instruments">
-        <!-- Eventually will be a moving line corresponding to position -->
-      <!-- <div id="line"></div> -->
-      </div>
-  </main>
   <aside>
     <!-- <input id="search" type="text"> -->
     <button id="play">Play</button>
     <ul id="instrument-list">
-      <li><button data-type="instrument" data-source="tonejs" data-note="new Tone.AMSynth().toMaster()" data-name="synth">Synth</button></li>
+      <li><button data-type="instrument" data-source="tonejs" data-note="new Tone.AMSynth().toMaster()" data-slug="synth" data-name="Synth">Synth</button></li>
       <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/808-kick-vh.mp3").toMaster()' data-slug="kick" data-name="Kick">Kick</button></li>
       <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/flares-snare-vm.mp3").toMaster()' data-slug="snare" data-name="Snare">Snare</button></li>
-      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/808-hihat-vh.mp3").toMaster()' data-slug="hihat" data-name="Hi-hat">Hi-hat</button></li>
-      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/808-hihat-open-vh.mp3").toMaster()' data-slug="hihat-open" data-name="Hi-hat Open">Hi-hat Open</button></li>
+      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/808-hihat-vh.mp3").toMaster()' data-slug="hi-hat" data-name="Hi-hat">Hi-hat</button></li>
+      <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/808-hihat-open-vh.mp3").toMaster()' data-slug="hi-hat-open" data-name="Hi-hat Open">Hi-hat Open</button></li>
       <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/slamdam-tom-low-vh.mp3").toMaster()' data-slug="slamdam-tom-low" data-name="Tom Low">Tom Low</button></li>
       <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/slamdam-tom-mid-vh.mp3").toMaster()' data-slug="slamdam-tom-mid" data-name="Tom Mid">Tom Mid</button></li>
       <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/slamdam-tom-high-vh.mp3").toMaster()' data-slug="slamdam-tom-high" data-name="Tom High">Tom High</button></li>
@@ -36,10 +28,21 @@
       <li><button data-type="instrument" data-source="mp3" data-note='new Tone.Player("https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/909-rim-vh.wav").toMaster()' data-slug="rim" data-name="Rim">Rim</button></li>
     </ul>
   </aside>
+  <main>
+    <div id="soundboard">
+      <h1>Add some sounds</h1>
+      <div id="instruments">
+        <!-- Eventually will be a moving line corresponding to position -->
+        <!-- <div id="line"></div> -->
+      </div>
+      <div id="note-editor">
+        <h1 id="note-editor-title">Edit Notes</h1>
+        <div id="settings"></div>
+      </div>
+  </main>
   <footer>
     Footer
   </footer>
-  <audio data-key="1" src="sounds/boom.wav"></audio>
   <script src="bundle.js"></script>
 
 </html>

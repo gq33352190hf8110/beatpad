@@ -14,7 +14,7 @@ footer {
 body {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 10vw 30vw 10vw;
+  grid-template-rows: 0px 1fr 5fr;
   grid-gap: 1em;
 }
 main {
@@ -70,8 +70,9 @@ footer {
   height: 10vw;
 }
 #soundboard {
-  display: grid;
-  grid-template-rows: 20% auto;
+  /* display: grid; */
+  /* grid-template-rows: 20% auto; */
+  /* grid-template-rows: auto ; */
   align-items: stretch;
   width: 100%;
 }
@@ -86,10 +87,11 @@ footer {
   grid-gap: 5px;
   max-height: 500px;
   overflow-y: auto;
+  margin: 40px;
 }
 
-#beat {
-  background-color: blue;
+#note-edit {
+  background-color: #c0d3c5;
   display: flex;
   align-items: center;
   grid-gap: 5px;
